@@ -53,7 +53,7 @@ export default function HoverBall({ children }: any) {
                 </motion.div>
                 <motion.div
                     style={{ opacity, x }}
-                    className="absolute top-[-20vh] w-[90vw] md:w-[35vw] h-[50vh] flex flex-col items-center justify-start md:justify-start sm:gap-6 p-10 md:p-0">
+                    className="absolute top-[-20vh] w-[90vw] md:w-[35vw] lg:w-[50vw] h-[50vh] flex flex-col items-center justify-start md:justify-start sm:gap-6 p-10 md:p-0">
                     <div>
                         <h1 className="text-base sm:text-3xl font-thin">Directors Cut</h1>
                     </div>
@@ -61,7 +61,7 @@ export default function HoverBall({ children }: any) {
                     <Link
                         href="https://github.com/TroyK12"
                         target="_blank"
-                        className="w-[60%] sm:w-[80%] md:w-[25%] text-center p-3 text-sm lg:text-base border rounded-xl whitespace-nowrap cursor-pointer bg-transparent transform-background duration-500 ease-in-out hover:bg-[#515960]">
+                        className="w-[60%] sm:w-[80%] md:w-[45%] text-center p-3 text-sm lg:text-base border rounded-xl whitespace-nowrap cursor-pointer bg-transparent transform-background duration-500 ease-in-out hover:bg-[#515960]">
                         Source C0de
                     </Link>
                 </motion.div>
