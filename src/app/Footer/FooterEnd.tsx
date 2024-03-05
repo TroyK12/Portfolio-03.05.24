@@ -10,7 +10,7 @@ export default function FooterEnd({ children }: any) {
         offset: ['start end', 'end end']
     })
 
-    const opacity = useTransform(scrollYProgress, [0, 0.95, 0.96, 1], [0, 0, 1, 1]);
+    const opacity = useTransform(scrollYProgress, [0, 0.96, 0.97, 1], [0, 0, 1, 1]);
 
     return (
         <motion.div style={{opacity}} className="absolute top-0 h-full w-full">

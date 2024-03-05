@@ -37,11 +37,11 @@ export default function AboutMe() {
                 </div>
                 <div className="relative w-full flex flex-col items-end font-thin text-lg md:text-[21px] tracking-wide leading-9 text-shadow">
                     <div className="w-[60vw] bg-[#242729ea] p-10 rounded-l-2xl">
-                        <h1 className="text-2xl md:text-4xl pb-7">Where We(&apos;)re At</h1>
+                        <h1 className="text-2xl md:text-4xl pb-7">Where We&apos;re At</h1>
                         <p>A commited self taught journey over the years has provided me with profficient skills
                             in <WordHover id={wordDescription.javascript.id} content={wordDescription.javascript.content}>Javascript</WordHover>, HTML, <WordHover id={wordDescription.css.id} content={wordDescription.css.content}>CSS</WordHover> and more
                             recently <WordHover id={wordDescription.nextjs.id} content={wordDescription.nextjs.content}>Next.js</WordHover> to put my skills together with a backend. These skills have allowed me to bring together
-                            the pieces that I have show cased below. I(&apos;)m excited to continue my adventure of the world of technology with you!
+                            the pieces that I have show cased below. I&apos;m excited to continue my adventure of the world of technology with you!
                         </p>
                     </div>
                     <ContactLink />

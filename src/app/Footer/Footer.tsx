@@ -8,12 +8,12 @@ export default async function Footer() {
     return (
         <div className="h-[120vh] md:h-[100vh] w-screen relative bg-gradient-to-b from-[#515960] to-[#2a2d30]">
             <HoverBall>
-                Take a peek behind the scenes and see how my production comes together in a special director(&apos;)s cut. Explore the magic of the 
+                Take a peek behind the scenes and see how my production comes together in a special director&apos;s cut. Explore the magic of the 
                 silver screen creation as you witness the creative journey that turns ideas into an extraordinary cinematic adventure.
             </HoverBall>
             <FooterEnd>
                 <div className="h-full w-full flex flex-col-reverse md:flex-row">
-                    <div className="w-full md:w-1/2 flex flex-col justify-between px-8 pt-10 md:pt-[15vh]">
+                    <div className="w-full md:w-1/2 flex flex-col justify-between px-8 md:pt-[15vh]">
                         <div>
                             <Image src={selfPhoto} alt="Self Photo" className="w-[100px] md:w-[130px] rounded-full mb-8" />
                             <h2 className="md:text-5xl font-thin whitespace-break-spaces">t r o y k u s h @ g m a i l . c o m</h2>
