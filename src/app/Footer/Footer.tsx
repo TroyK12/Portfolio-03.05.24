@@ -8,7 +8,7 @@ export default async function Footer() {
     return (
         <div className="h-[120vh] md:h-[100vh] w-screen relative bg-gradient-to-b from-[#515960] to-[#2a2d30]">
             <HoverBall>
-                Take a peek behind the scenes and see how my production comes together in a special director's cut. Explore the magic of the 
+                Take a peek behind the scenes and see how my production comes together in a special director(&apos;)s cut. Explore the magic of the 
                 silver screen creation as you witness the creative journey that turns ideas into an extraordinary cinematic adventure.
             </HoverBall>
             <FooterEnd>

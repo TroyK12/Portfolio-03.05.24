@@ -4,9 +4,9 @@ import WordHover from "./WordHover";
 import afghanPhoto from "@/assets/afghan-photo.png";
 
 const wordDescription = {
-    javascript: {id: 1, content: 'The journey of learning your first language has been eventful. Through all the mistakes you learn from, to all the endless knowledge to learn. Using this for client-side development has made these projects really come to life.'},
-    css: { id: 3, content: 'Using the wide range of CSS features to create these beautiful websites has been a staple of the magic for these websites. Using frameworks such as Tailwind CSS and DaisyUI helps create these designs more efficient.' },
-    nextjs: { id: 4, content: 'I love working with Next.js, it allows you to use a framework such as React and render server actions within the project. The built-in features for SEO opimization and the support for Typescript gives users much as myself a great range of benefits.' },
+    javascript: {id: 1, content: "The journey of learning your first language has been eventful. Through all the mistakes you learn from, to all the endless knowledge to learn. Using this for client-side development has made these projects really come to life."},
+    css: { id: 2, content: "Using the wide range of CSS features to create these beautiful websites has been a staple of the magic for these websites. Using frameworks such as Tailwind CSS and DaisyUI helps create these designs more efficient." },
+    nextjs: { id: 3, content: "I love working with Next.js, it allows you to use a framework such as React and render server actions within the project. The built-in features for SEO opimization and the support for Typescript gives users much as myself a great range of benefits." },
 }
 
 export default function AboutMe() {
@@ -35,13 +35,13 @@ export default function AboutMe() {
                         <Image className="h-full w-full transform-all duration-[1100ms] ease-in-out hover:scale-150" src={afghanPhoto} alt="Photo Taken in Afghanistan" />
                     </div>
                 </div>
-                <div className=" relative w-full flex flex-col items-end font-thin text-lg md:text-[21px] tracking-wide leading-9 text-shadow">
+                <div className="relative w-full flex flex-col items-end font-thin text-lg md:text-[21px] tracking-wide leading-9 text-shadow">
                     <div className="w-[60vw] bg-[#242729ea] p-10 rounded-l-2xl">
-                        <h1 className="text-2xl md:text-4xl pb-7">Where We're At</h1>
+                        <h1 className="text-2xl md:text-4xl pb-7">Where We(&apos;)re At</h1>
                         <p>A commited self taught journey over the years has provided me with profficient skills
                             in <WordHover id={wordDescription.javascript.id} content={wordDescription.javascript.content}>Javascript</WordHover>, HTML, <WordHover id={wordDescription.css.id} content={wordDescription.css.content}>CSS</WordHover> and more
                             recently <WordHover id={wordDescription.nextjs.id} content={wordDescription.nextjs.content}>Next.js</WordHover> to put my skills together with a backend. These skills have allowed me to bring together
-                            the pieces that I have show cased below. I'm excited to continue my adventure of the world of technology with you!
+                            the pieces that I have show cased below. I(&apos;)m excited to continue my adventure of the world of technology with you!
                         </p>
                     </div>
                     <ContactLink />
