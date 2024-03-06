@@ -29,17 +29,17 @@ const projectList: Project[] = [
         id: 2
     },
     {
+        image: salon,
+        name: 'My Beauty Salon',
+        src: 'https://troyk12.github.io/forbidden-future/',
+        id: 4
+    },
+    {
         image: restaurant,
         name: "Crave's Restaurant",
         src: 'https://troyk12.github.io/craves-coffee/',
         id: 3
     },
-    {
-        image: salon,
-        name: 'My Beauty Salon',
-        src: 'https://troyk12.github.io/forbidden-future/',
-        id: 4
-    }
 ]
 
 export default function Projects() {    
