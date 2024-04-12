@@ -41,10 +41,10 @@ export default function HoverBall({ children }: any) {
 
     return (
         <motion.div ref={ref} className="relative h-screen w-screen">
-            <div onMouseMove={handleMouseMove} className="relative w-full flex justify-center sm:ball-hover-effect z-20">
+            <div onMouseMove={handleMouseMove} className="relative w-full flex justify-center ball-hover-effect z-20">
                 <motion.div
                     style={{ scale }}
-                    className="absolute bg-[#2a2d30d8] sm:bg-transparent top-[-20%] md:top-0 w-[13px] h-[13px] sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-[30px] lg:h-[30px] xl:w-11 xl:h-11 rounded-full shadow-2xl overflow-hidden transform-all ease-in-out duration-300">
+                    className="absolute bg-[#2a2d30d8] sm:bg-transparent top-[-20%] md:top-0 w-[13px] h-[13px] sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-[30px] lg:h-[30px] xl:w-11 xl:h-11 rounded-full shadow-2xl overflow-hidden">
                     <div className="relative w-full h-full hidden sm:block">
                         <RandomLetter />
                         <div style={{ ...backgroundStyles }} className="absolute w-full h-full z-20" />
