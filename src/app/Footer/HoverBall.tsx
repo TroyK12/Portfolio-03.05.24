@@ -41,7 +41,7 @@ export default function HoverBall({ children }: any) {
 
     return (
         <motion.div ref={ref} className="relative h-screen w-screen">
-            <div onMouseMove={handleMouseMove} className="relative w-full flex justify-center ball-hover-effect z-20">
+            <div onMouseMove={handleMouseMove} className="relative w-full h-screen sm:h-auto flex justify-center ball-hover-effect z-20">
                 <motion.div
                     style={{ scale }}
                     className="absolute bg-[#2a2d30d8] sm:bg-transparent top-[-20%] md:top-0 w-[13px] h-[13px] sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-[30px] lg:h-[30px] xl:w-11 xl:h-11 rounded-full shadow-2xl overflow-hidden">
@@ -52,7 +52,7 @@ export default function HoverBall({ children }: any) {
                 </motion.div>
                 <motion.div
                     style={{ opacity, x }}
-                    className="absolute top-[-20vh] w-[90vw] md:w-[35vw] lg:w-[50vw] h-[50vh] flex flex-col items-center justify-start md:justify-start sm:gap-6 p-10 md:p-0">
+                    className="absolute top-[-40vh] sm:top-[-20vh] w-[90vw] md:w-[35vw] lg:w-[50vw] h-[50vh] flex flex-col items-center justify-start sm:gap-6 p-10 md:p-0">
                     <div>
                         <h1 className="text-base sm:text-3xl font-thin">Directors Cut</h1>
                     </div>
