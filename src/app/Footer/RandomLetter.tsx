@@ -56,7 +56,7 @@ const RandomLetter = () => {
       };
     }, []);
   
-    return <canvas ref={ref} className='absolute w-full h-full z-0' />;
+    return <canvas ref={ref} className='absolute w-full h-full z-0 hidden sm:block' />;
   };
   
   export default RandomLetter;

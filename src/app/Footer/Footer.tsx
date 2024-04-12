@@ -15,7 +15,7 @@ export default async function Footer() {
                 <div className="h-full w-full flex flex-col-reverse md:flex-row">
                     <div className="w-full md:w-1/2 flex flex-col justify-between px-8 md:pt-[15vh]">
                         <div>
-                            <Image src={selfPhoto} alt="Self Photo" className="w-[100px] md:w-[130px] rounded-full mb-8" />
+                            <Image src={selfPhoto} alt="Self Photo" className="w-[100px] md:w-[130px] rounded-full mb-2" />
                             <h2 className="md:text-5xl font-thin whitespace-break-spaces">t r o y k u s h @ g m a i l . c o m</h2>
                         </div>
                         <h2>&copy; 2024</h2>
