@@ -20,7 +20,7 @@ export default async function Footer() {
                         </div>
                         <h2>&copy; 2024</h2>
                     </div>
-                    <div className="w-full md:w-1/2 flex flex-col items-center justify-center">
+                    <div className="w-full md:w-1/2 flex flex-col items-center justify-center pt-10">
                         <div className="pb-5 w-full flex flex-col items-center">
                             <div className="h-[2px] min-w-[100px] w-[30%] bg-white mx-3 relative">
                                 <div className="absolute left-[-4px] top-[-12px]">&lt;</div>
