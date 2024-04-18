@@ -28,7 +28,7 @@ export default function AboutMe() {
                         </div>    
                         <p>My adventure starts in the heart of the Middle East, serving my county as a satelite specialist. I specialised in the operation and maintence
                             of our satelite equiptment and through that, I learned how to set up firewalls and ensure that we had the correct configuration to connect to our satelite.
-                            This experience ignited my passion for learning how the inner works of computers and software developement.
+                            This experience ignited my passion for learning the inner works of computers and software developement.
                         </p>
                     </div>
                     <div className="absolute top-[6%] right-[-20px] z-0 w-[253px] h-[152px] md:w-[353px] md:h-[252px] transform-all duration-[800ms] ease-in-out -skew-x-6 hover:translate-x-44 md:hover:translate-x-72 hover:skew-x-0 overflow-hidden rounded-lg shadow-2xl">
