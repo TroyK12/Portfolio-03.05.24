@@ -1,6 +1,3 @@
-'use client'
-import { useScroll, motion, useTransform } from "framer-motion";
-import { useRef } from "react";
 import ListedProjects from "./ListedProjects";
 import salon from "@/assets/salon-beauty.png"
 import construction from "@/assets/construction-company.png"

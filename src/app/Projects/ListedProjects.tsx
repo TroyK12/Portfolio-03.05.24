@@ -26,7 +26,7 @@ export default function ListedProjects({ project }: any) {
     return (
         <div
             ref={ref}
-            className="relative image-dropshadow overflow-hidden mx-5 w-[40vw] md:w-[35vw] aspect-video"
+            className="relative image-dropshadow overflow-hidden mx-5 w-[65vw] md:w-[35vw] aspect-video"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             onMouseMove={handleMouseMove}
