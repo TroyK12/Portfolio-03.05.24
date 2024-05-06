@@ -5,9 +5,9 @@ const RandomLetter = () => {
 
     useEffect(() => {
       const canvas = ref.current;
-      const context = canvas?.getContext('2d');
+      const ctx = canvas?.getContext('2d');
   
-      if (!context || !canvas) {
+      if (!ctx || !canvas) {
         return;
       }
   
@@ -31,15 +31,15 @@ const RandomLetter = () => {
       const rainDrops: number[] = Array.from({ length: columns }, () => 1);
   
       const draw = () => {
-        context.fillStyle = 'rgba(55, 55, 55, 0.05)';
-        context.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = 'rgba(55, 55, 55, 0.05)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
   
-        context.fillStyle = '#ffffff8a';
-        context.font = fontSize + 'px sans-serif';
+        ctx.fillStyle = '#ffffff8a';
+        ctx.font = fontSize + 'px sans-serif';
   
         for (let i = 0; i < rainDrops.length; i++) {
           const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
-          context.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+          ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
   
           if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
             rainDrops[i] = 0;
@@ -56,7 +56,7 @@ const RandomLetter = () => {
       };
     }, []);
   
-    return <canvas ref={ref} className='absolute w-full h-full z-0' />;
+    return <canvas ref={ref} className='absolute w-full h-full z-0 rounded-3xl' />;
   };
   
   export default RandomLetter;

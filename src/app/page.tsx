@@ -8,7 +8,7 @@ export default function Home() {
 
 
   return (
-      <div className="bg-[#99a5b1]">
+      <div>
         <Navbar />
         <HomeScreen />
         <AboutMe />
@@ -17,3 +17,5 @@ export default function Home() {
       </div>
   )
 }
+
+/* className="bg-[#1C2541]" */

@@ -30,7 +30,7 @@ export default function Header({ words }: any) {
   return (
     <div className="flex flex-row">
       {displayedText.split('').map((letter, i) => (
-        <div key={i} className='animate-letter-fall text-5xl md:text-6xl text-[#fffffff5]'> {letter}</div>
+        <div key={i} className='animate-letter-fall text-3xl md:text-5xl text-[#fffffff5]'> {letter}</div>
       ))}
     </div>
   )

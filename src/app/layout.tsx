@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import SplashScreen from './SplashScreen/SplashScreen'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,9 +15,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className='bg-[#99a5b1]'>
+    <html lang="en" className='bg-[#1C2541]'>
       <body className={inter.className}>
-        <SplashScreen />
         <main>{children}</main>
       </body>
     </html>

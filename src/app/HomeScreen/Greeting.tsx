@@ -1,33 +1,38 @@
 "use client"
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 
 const timeOfDay = () => {
-    const currentHour = new Date().getHours();
-  
-    if (currentHour >= 0 && currentHour < 12) {
-      return 'Good Morning!';
-    } else if (currentHour >= 12 && currentHour < 18) {
-      return 'Good Afternoon!';
-    } else {
-      return 'Good Evening!';
-    }
+  const currentHour = new Date().getHours();
+
+  if (currentHour >= 0 && currentHour < 12) {
+    return 'Good Morning';
+  } else if (currentHour >= 12 && currentHour < 18) {
+    return 'Good Afternoon';
+  } else {
+    return 'Good Evening';
   }
+}
 
 export default function Greeting() {
-    const ref = useRef<HTMLDivElement>(null);
     const greeting = timeOfDay()
+    const [displayedText, setDisplayedText] = useState('');
+    const [typingIndex, setTypingIndex] = useState(0);
 
-    useEffect(()=>{
-        const timeoutId = setTimeout(() => {
-            if (ref.current) {
-                ref.current.classList.add("left-slide-in");
-            }
-        }, 4000);
-        
-      return () => clearTimeout(timeoutId);
-    }, []);
-
-    return (
-        <h1 ref={ref} className="text-4xl md:text-7xl mt-36 ml-12">{ greeting }</h1>
-    )
+  
+    useEffect(() => {
+      if (greeting) {
+        const intervalId = setInterval(() => {
+          if (typingIndex < greeting.length) {
+            setDisplayedText((prevText) => prevText + greeting[typingIndex]);
+            setTypingIndex((prevIndex) => prevIndex + 1);
+          } else if (displayedText) {
+            clearInterval(intervalId);
+          }
+        }, 300);
+  
+        return () => clearInterval(intervalId);
+      }
+    }, [greeting, typingIndex]); 
+  
+    return (<>{displayedText}</>)
 }

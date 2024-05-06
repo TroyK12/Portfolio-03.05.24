@@ -1,5 +1,4 @@
 'use client'
-import { motion } from "framer-motion";
 import Image from "next/image"
 import Link from "next/link";
 import { useRef, useState } from "react"
@@ -25,15 +24,15 @@ export default function ListedProjects({ project }: any) {
       };
 
     return (
-        <motion.div
+        <div
             ref={ref}
-            className="relative h-[170px] w-[300px] md:h-[340px] md:w-[600px] image-dropshadow overflow-hidden cursor-none"
+            className="relative image-dropshadow overflow-hidden mx-5 w-[40vw] md:w-[35vw] aspect-video"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             onMouseMove={handleMouseMove}
         >
             <Image
-                className={`rounded shadow-lg h-full ${isHovered ? 'scale-105' : 'scale-100'} transition-transform duration-1000 ease-in-out cursor-none`}
+                className={`rounded shadow-lg h-full ${isHovered ? 'scale-105' : 'scale-100'} transition-transform duration-1000 ease-in-out`}
                 src={project.image}
                 alt={project.name}
                 priority />
@@ -45,8 +44,8 @@ export default function ListedProjects({ project }: any) {
                 style={{
                     transform: `translate(${mousePosition.x - 70}px, ${mousePosition.y - 400}px)`,
                 }}
-                className={`hidden md:block absolute md:cursor-none z-[11] w-[150px] h-[150px] rounded-full bg-gray-950 text-xl font-thin shadow-2xl duration-100`}>Visit { project.name }!</button>}
+                className={`hidden md:block absolute md:cursor-none z-[11] w-[150px] h-[150px] rounded-full bg-gray-950 text-xl font-thin shadow-2xl duration-100 whitespace-normal`}>Visit { project.name }!</button>}
             </Link>
-            </motion.div>
+        </div>
   )
 }

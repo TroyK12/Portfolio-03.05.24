@@ -43,38 +43,27 @@ const projectList: Project[] = [
 ]
 
 export default function Projects() {    
-    const ref = useRef<HTMLDivElement>(null)
-    const { scrollYProgress } = useScroll({ target: ref })
-    const x = useTransform(scrollYProgress, [0, 1], ["5%", "-80%"])
-
-    const opacity = useTransform(scrollYProgress, [0, 0.8, 0.98], [1, 1, 0]);
 
     return (
-        <motion.div id="projects" ref={ref} className="relative bg-gradient-to-b from-[#99a5b1] to-[#515960]">
-            <motion.div style={{opacity}} className="flex flex-row items-center w-screen justify-center sticky top-32">
-                <div className="h-[2px] min-w-[100px] w-[20%] bg-white mx-3 relative">
-                    <div className="absolute left-[-4px] top-[-12px]">&lt;</div>
-                    <div className="absolute right-[-6px] top-[-12px]">&lt;</div>
-                    <div className="absolute right-[2px] top-[-12px]">&lt;</div>
-                    <div className="absolute right-[10px] top-[-12px]">&lt;</div>
-                </div>
-                <h1 className="text-2xl">Projects</h1>
-                <div className="h-[2px] min-w-[100px] w-[20%] bg-white mx-3 relative">
-                    <div className="absolute right-[-4px] top-[-12px]">&gt;</div>
-                    <div className="absolute left-[-6px] top-[-12px]">&gt;</div>
-                    <div className="absolute left-[2px] top-[-12px]">&gt;</div>
-                    <div className="absolute left-[10px] top-[-12px]">&gt;</div>
-                </div>
-            </motion.div> 
-            <section className="relative h-[300vh]">
-                <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-                    <motion.div style={{x, opacity}} className="flex gap-7">
+        <div id="projects" className="relative bg-[#1C2541]">
+            <div className="pl-[10%] flex flex-col items-start">
+                <h1 className="text-2xl">My Work</h1>
+                <div className="w-[30vw] h-[1px] bg-white mt-3" />
+            </div> 
+            <section className="relative w-screen flex justify-center py-10 px-5">
+                <div className="projects h-[300px]">
+                    <div className="project-scroll">
                         {projectList.map((project) => {
                             return <ListedProjects project={project} key={project.id} />
                         })}
-                    </motion.div>
+                    </div>
+                    <div className="project-scroll">
+                        {projectList.map((project) => {
+                            return <ListedProjects project={project} key={project.id} />
+                        })}
+                    </div>
                 </div>
             </section>
-        </motion.div>
+        </div>
     )
 }

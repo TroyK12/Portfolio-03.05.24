@@ -1,22 +1,25 @@
 import Image from "next/image";
 import Header from "./Header";
-import mn from '@/assets/mn.png'
-import Greeting from "./Greeting"
-
+import mn from '@/assets/mn.png';
+import CanvasHome from "./CanvasHome";
 
 
 export default function HomeScreen() {
-  const diffWords = ['Designer ', 'Developer ', 'Javascript ', 'Next.js ', 'TypeScript '];
+  const diffWords = ['Designer ', 'Developer ', 'SEO ', 'E-Commerce '];
 
   return (
-      <div>
-        <div className="h-[90vh] w-screen flex flex-col justify-between snap-none">
-          <div className="md:h-2/3">
-              <div className="mt-24 ml-10 font-light text-lg tracking-widest">Duluth Minnesota</div>
-              <Greeting />
+    <div>
+        <div className="relative h-screen w-screen bg-transparent">
+          <div className="absolute top-0 left-0 z-10 pt-24 pl-14 font-light text-base md:text-lg tracking-widest">Duluth Minnesota</div>
+          <CanvasHome />
+          <div className="absolute bottom-10 w-1/2 flex justify-center">
+              <svg className="w-10 h-10 arrow-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                  <path className="fill-white" fill="#000000" d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
+              </svg> 
           </div>
-          <div className="w-screen flex flex-col justify-end items-end overflow-hidden md:overflow-visible">
-            <div className="md:m-auto mr-60 w-2 md:h-full flex flex-col md:justify-start">
+        </div>
+      <div className="w-screen flex flex-col justify-end items-end rounded-t-xl bg-[#1c2540]">
+            <div className="mr-[90%] w-2 h-5 flex flex-col pt-5">
               <Header words={diffWords} />
             </div>
           <div className="bg-[#242729ea] p-3 w-[99%] flex justify-center items-center rounded-xl shadow-2xl m-auto">
@@ -29,12 +32,6 @@ export default function HomeScreen() {
             </div>
             </div>
           </div>
-        </div>
-        <div className="w-1/4 flex justify-center">
-            <svg className="w-16 h-16 p-2 rounded-full border-[2px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                <path className="fill-white" fill="#000000" d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
-            </svg>
-        </div>
       </div>
     )
 }

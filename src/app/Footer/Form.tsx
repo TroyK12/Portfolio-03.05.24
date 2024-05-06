@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import FormSubmitButton from "./FormSubmitBtn";
 
 export default function Form() {
@@ -49,7 +49,7 @@ export default function Form() {
     }
 
     return (
-        <form id="contact" className="flex flex-col gap-4 w-[80%]" action={sendMail}>
+        <form id="contact" className="flex flex-col gap-6 w-[80%]" action={sendMail}>
             <input
                 className="border-b-2 bg-transparent outline-none w-full"
                 type="text"
