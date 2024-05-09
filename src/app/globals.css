@@ -113,6 +113,13 @@
     backface-visibility: hidden;
   }
 
+  @media (max-height: 630px) {
+      .card-img {
+        width: 100%;
+        left: 0;
+      }
+  }
+
   .back-card {
     transform: rotateY(180deg);
   }
