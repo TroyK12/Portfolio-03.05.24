@@ -42,7 +42,7 @@ export default function SourceCode({ children }: any) {
                                 href="https://github.com/TroyK12"
                                 target="_blank"
                                 className="w-[60%] sm:w-[80%] md:w-[45%] text-center p-3 text-sm lg:text-base border rounded-xl whitespace-nowrap cursor-pointer bg-transparent transform-background duration-500 ease-in-out hover:bg-[#515960]">
-                                Source C0de
+                                Source Code
                             </Link>
                         </div>
                     </div>

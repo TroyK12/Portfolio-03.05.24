@@ -28,7 +28,7 @@ export default function Greeting() {
           } else if (displayedText) {
             clearInterval(intervalId);
           }
-        }, 300);
+        }, 250);
   
         return () => clearInterval(intervalId);
       }

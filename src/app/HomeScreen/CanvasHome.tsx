@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react';
 import Greeting from "./Greeting";
 import { motion, useScroll, useTransform } from 'framer-motion';
+import Trees from './Trees';
 
 const CanvasHome = () => {
     const ref = useRef<HTMLCanvasElement | null>(null);
@@ -21,7 +22,7 @@ const CanvasHome = () => {
   
         handleResize();
   
-        window.addEventListener('resize', handleResize);
+        window.addEventListener('DOMContentLoaded', handleResize);
 
         const wave = {
             y: canvas.height / 2,
@@ -60,7 +61,7 @@ const CanvasHome = () => {
                 ctx.lineTo(i + offsetX + offsetXDistortion, wave.y + (Math.sin(i * wave.length + increment) * wave.ampl / 0.8 + i) / frame);
             }
     
-            ctx.strokeStyle = `hsl(${Math.abs(stroke.h * Math.sin(increment))}, ${stroke.s}%, ${stroke.l}%)`
+            ctx.strokeStyle = `hsl(${Math.abs(stroke.h * Math.sin(increment))}, ${stroke.s}%, ${stroke.l}%)`;
             ctx.stroke();
 
             
@@ -75,7 +76,7 @@ const CanvasHome = () => {
 
         draw()
         return () => {
-          window.removeEventListener('resize', handleResize);
+          window.removeEventListener('DOMContentLoaded', handleResize);
         };
         
     }, [])
@@ -89,7 +90,8 @@ const CanvasHome = () => {
             <canvas ref={ref as React.MutableRefObject<HTMLCanvasElement>} className="w-full h-full" />
             <div className='absolute flex top-0 z-[1] h-[90%] pl-20 text-center translate-y-1/2 text-2xl tracking-widest'>
                 <Greeting />
-                <div className='w-[2px] h-[26px] bg-white ml-1 blinker'/> 
+                <div className='w-[2px] h-[26px] bg-white ml-1 blinker' /> 
+                <Trees />
             </div>
         </motion.div>
     )
