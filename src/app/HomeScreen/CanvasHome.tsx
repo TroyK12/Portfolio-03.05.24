@@ -16,13 +16,24 @@ const CanvasHome = () => {
         }
   
         const handleResize = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            let w = canvas.width = window.innerWidth;
+            let h = canvas.height = window.innerHeight;
+
+            window.addEventListener('DOMContentLoaded', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+
+            window.addEventListener('resize', () => {
+                if (canvas.width > w || canvas.width < w) {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                }
+            });
         };
   
         handleResize();
     
-        window.addEventListener('DOMContentLoaded', handleResize);
 
         const wave = {
             y: canvas.height / 2,
@@ -76,6 +87,7 @@ const CanvasHome = () => {
 
         draw()
         return () => {
+            window.removeEventListener('resize', handleResize);
             window.removeEventListener('DOMContentLoaded', handleResize);
         };
         
