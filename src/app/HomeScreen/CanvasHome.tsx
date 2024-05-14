@@ -102,7 +102,7 @@ const CanvasHome = () => {
             <canvas ref={ref as React.MutableRefObject<HTMLCanvasElement>} className="w-full h-full" />
             <div className='absolute flex top-0 z-[1] h-[90%] pl-20 text-center translate-y-1/2 tracking-widest'>
                 <Greeting />
-                <div className='w-[1px] h-[27px] bg-white ml-1 mt-1 blinker' /> 
+                <div className='w-[1px] h-[27px] z-30 bg-white ml-1 mt-1 blinker' /> 
                 <Trees />
             </div>
         </motion.div>
