@@ -34,5 +34,5 @@ export default function Greeting() {
       }
     }, [greeting, typingIndex]); 
   
-    return (<>{displayedText}</>)
+    return (<div className="z-30 text-shadow font-thin text-3xl">{displayedText}</div>)
 }

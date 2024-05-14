@@ -127,6 +127,8 @@ const Trees = () => {
             h = canvas.height = window.innerHeight;
             trees = [];
             trees.push(new Tree(w * 0.7));
+            trees.push(new Tree(w * 0.5));
+            trees.push(new Tree(w * 0.4));
         }
 
         function animationLoop() {

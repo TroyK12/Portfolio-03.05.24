@@ -21,7 +21,7 @@ const CanvasHome = () => {
         };
   
         handleResize();
-  
+    
         window.addEventListener('DOMContentLoaded', handleResize);
 
         const wave = {
@@ -76,7 +76,7 @@ const CanvasHome = () => {
 
         draw()
         return () => {
-          window.removeEventListener('DOMContentLoaded', handleResize);
+            window.removeEventListener('DOMContentLoaded', handleResize);
         };
         
     }, [])
@@ -88,9 +88,9 @@ const CanvasHome = () => {
     return (
         <motion.div style={{ y }} className='fixed z-[-2] block top-0 left-0 w-full h-full overflow-hidden bg-[#727272da]'>
             <canvas ref={ref as React.MutableRefObject<HTMLCanvasElement>} className="w-full h-full" />
-            <div className='absolute flex top-0 z-[1] h-[90%] pl-20 text-center translate-y-1/2 text-2xl tracking-widest'>
+            <div className='absolute flex top-0 z-[1] h-[90%] pl-20 text-center translate-y-1/2 tracking-widest'>
                 <Greeting />
-                <div className='w-[2px] h-[26px] bg-white ml-1 blinker' /> 
+                <div className='w-[1px] h-[27px] bg-white ml-1 mt-1 blinker' /> 
                 <Trees />
             </div>
         </motion.div>
