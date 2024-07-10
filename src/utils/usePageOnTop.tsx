@@ -1,7 +1,7 @@
 'use client'
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
-function pageOnTop() {
+const usePageOnTop = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -17,4 +17,4 @@ function pageOnTop() {
   return isScrolled;
 }
 
-export default pageOnTop;
+export default usePageOnTop;

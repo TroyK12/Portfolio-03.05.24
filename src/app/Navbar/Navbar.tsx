@@ -4,13 +4,13 @@ import Link from "next/link"
 import { useState } from 'react';
 import Image from "next/image"
 import tk from '@/assets/tk.png'
-import pageOnTop from "@/utils/pageOnTop";
+import usePageOnTop from "@/utils/usePageOnTop";
 
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isMenuHover, setIsMenuHover] = useState(false);
-    const notOnTop = pageOnTop();
+    const notOnTop = usePageOnTop();
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
