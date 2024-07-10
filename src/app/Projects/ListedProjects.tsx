@@ -52,7 +52,7 @@ export default function ListedProjects({ project }: any) {
                     <div className="relative w-[65%] flex justify-end aspect-video overflow-hidden ease-in-out duration-1000 group-hover:scale-[1.1] group-hover:translate-y-[-10px] group-hover:translate-x-[-5px]">
                         <Image src={laptop} alt="laptop" width={200} className='absolute right-0 z-10 w-[75%]' />
                         <div className="w-full pt-4">
-                            <Image src={project.image} alt="page" width={200} className='min-h-max w-[61.5%] absolute left-[32%]' />
+                            <Image src={project.image} alt="page" width={200} className='min-h-max w-[61.5%] absolute left-[32%] aspect-video' />
                         </div>
                     </div>
                     <div className="relative flex justify-center justify-self-start w-[35%] ease-in-out duration-1000 group-hover:scale-[1.1] group-hover:translate-y-[-10px] group-hover:translate-x-[5px]">
