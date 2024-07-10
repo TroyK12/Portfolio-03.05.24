@@ -29,7 +29,7 @@ export default function Navbar() {
     return (
         <div className='fixed top-0 w-screen h-36 px-10 z-10'>
             <div className="flex flex-row items-center justify-between h-full w-full">
-                <h1 className="px-3 z-40">
+                <h1 className="px-3 z-50">
                     <Link href="/" className="flex items-center font">
                         <Image src={tk} alt="Tk Logo" width={70} className={`transition-all ease-in-out duration-500 ${notOnTop ? 'w-[100px]' : 'w-[70px]'}`} />
                         <h4 className={`${styles.name} tracking-widest text-xl md:text-3xl transition-all ease-in-out duration-500 ${notOnTop ? 'opacity-0' : 'opacity-100'}`}>Troy Kush</h4>
@@ -46,7 +46,7 @@ export default function Navbar() {
                         <div className={`${styles.navBars} h-[3px] rounded-xl w-[40px] ${isMenuOpen ? 'translate-y-[10px]' : 'mt-[10px]'} ease-in-out duration-1000 transform ${isMenuOpen ? 'rotate-[135deg]' : 'rotate-0'}`} />
                     </button>
 
-                    <div className={`absolute top-0 ${isMenuOpen ? 'right-0 opacity-1' : 'right-[-100%] opacity-0'} flex text-lg sm:text-xl font-light bg-[#0b132b1e] backdrop-blur-xl p-10 shadow-xl overflow-hidden transition-all duration-500 ease-linear h-screen w-[85vw] sm:w-[65vw] md:w-[45vw] lg:w-[35vw]`}> 
+                    <div className={`absolute z-[999] top-0 ${isMenuOpen ? 'right-0 opacity-1' : 'right-[-100%] opacity-0'} flex text-lg sm:text-xl font-light bg-[#0b132b1e] backdrop-blur-xl p-10 shadow-xl overflow-hidden transition-all duration-500 ease-linear h-screen w-[85vw] sm:w-[65vw] md:w-[45vw] lg:w-[35vw]`}> 
                         <div className="flex items-center w-full">
                             <ul className='tracking-widest h-[65vh] flex flex-col justify-around'>
                                 <li className={`relative transition-all ${isMenuOpen ? 'right-0 opacity-1' : 'right-[-250px] opacity-0'} ease-in-out duration-[2s]`}><Link onClick={closeDropdown} href="/" className={styles.linkHover}>Home</Link></li>
