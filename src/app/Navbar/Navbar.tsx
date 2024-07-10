@@ -40,13 +40,13 @@ export default function Navbar() {
                         onClick={toggleMenu}
                         onMouseEnter={hoverMenu}
                         onMouseLeave={leaveHoverMenu}
-                        className={`z-30 transition-transform duration-1000 ease-in-out transform flex flex-col items-end cursor-pointer h-[50px] w-[40px]`}>
+                        className={`z-[101] transition-transform duration-1000 ease-in-out transform flex flex-col items-end cursor-pointer h-[50px] w-[40px]`}>
                         <div className={`${styles.navBars} h-[3px] rounded-xl w-[40px] ${isMenuOpen ? 'translate-y-[15px]' : 'mt-[10px]'} ease-in-out duration-1000 transform ${isMenuOpen ? 'rotate-45' : 'rotate-0'}`} />
                         <div className={`${styles.navBars} h-[3px] ${isMenuOpen ? 'w-0' : isMenuHover ? 'w-[110%] mt-[10px]' :'w-[70%] mt-[10px]'} transition-all duration-700 ease-in-out rounded-xl`} />
                         <div className={`${styles.navBars} h-[3px] rounded-xl w-[40px] ${isMenuOpen ? 'translate-y-[10px]' : 'mt-[10px]'} ease-in-out duration-1000 transform ${isMenuOpen ? 'rotate-[135deg]' : 'rotate-0'}`} />
                     </button>
 
-                    <div className={`absolute z-[999] top-0 ${isMenuOpen ? 'right-0 opacity-1' : 'right-[-100%] opacity-0'} flex text-lg sm:text-xl font-light bg-[#0b132b1e] backdrop-blur-xl p-10 shadow-xl overflow-hidden transition-all duration-500 ease-linear h-screen w-[85vw] sm:w-[65vw] md:w-[45vw] lg:w-[35vw]`}> 
+                    <div className={`absolute z-[100] top-0 ${isMenuOpen ? 'right-0 opacity-1' : 'right-[-100%] opacity-0'} flex text-lg sm:text-xl font-light bg-[#0b132b1e] backdrop-blur-xl p-10 shadow-xl overflow-hidden transition-all duration-500 ease-linear h-screen w-[85vw] sm:w-[65vw] md:w-[45vw] lg:w-[35vw]`}> 
                         <div className="flex items-center w-full">
                             <ul className='tracking-widest h-[65vh] flex flex-col justify-around'>
                                 <li className={`relative transition-all ${isMenuOpen ? 'right-0 opacity-1' : 'right-[-250px] opacity-0'} ease-in-out duration-[2s]`}><Link onClick={closeDropdown} href="/" className={styles.linkHover}>Home</Link></li>
