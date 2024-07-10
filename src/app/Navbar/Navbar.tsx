@@ -3,7 +3,7 @@ import styles from './nav.module.css';
 import Link from "next/link"
 import { useState } from 'react';
 import Image from "next/image"
-import tk from '@/assets/TK.png'
+import tk from '@/assets/tk.png'
 import pageOnTop from "@/utils/pageOnTop";
 
 
