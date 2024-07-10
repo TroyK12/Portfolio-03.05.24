@@ -1,6 +1,6 @@
 'use client'
 import phone from '@/assets/phone.png'
-import logo from '@/assets/TK.png'
+import logo from '@/assets/tk.png'
 import duluthBridge from "@/assets/duluth-bridge.png"
 import duluthTrail from "@/assets/duluth-trail.png"
 import surfing from "@/assets/surfing.jpg"
@@ -11,7 +11,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
-
+//Photos
 const images = [
     duluthBridge.src,
     duluthTrail.src,
