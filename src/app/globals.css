@@ -1,256 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
 * {
+  margin: 0;
+  padding: 0;
   color: #fff;
-  scroll-behavior: smooth;
+  scroll-behavior: smooth !important;
+  font-family: "Cinzel Decorative", serif;
 }
 
-.name {
-  letter-spacing: 4px;
+:root {
+  --color-bg1: rgb(17, 30, 48);
+  --color-bg2: rgb(199, 229, 241);
+  --color1: 190, 183, 173;
+  --color2: 62, 69, 79;
+  --color3: 45, 17, 8;
+  --color4: 139, 150, 182;
+  --color5: 48, 15, 6;
+  --color-interactive: 32, 50, 74;
+  --circle-size: 80%;
+  --blending: hard-light;
 }
 
-.link-hover {
-    position: relative;
-    text-decoration: none !important;
-  }
-  
-  .link-hover::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #fff;
-    transform: scaleX(0);
-    transform-origin: bottom right;
-    transition: transform 0.4s ease-in-out;
-  }
-  
-  .link-hover:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
+/* -------BACKGROUND EFFECT ----- */
 
-  .ohey-img {
-    box-shadow: -15px 40px 10px rgba(177, 177, 177, 0.4);
+@keyframes moveInCircle {
+  0% {
+    transform: rotate(0deg);
   }
-
-  .blinker {
-    animation: typeBlink 0.9s linear infinite;
+  50% {
+    transform: rotate(180deg);
   }
-
-  @keyframes typeBlink {
-    0%, 50% {
-      opacity: 0;
-    }
-    51%, 100% {
-      opacity: 1;
-    }
+  100% {
+    transform: rotate(360deg);
   }
+}
 
-  @keyframes letterFall {
-    0% {
-      transform: translate(60px, -20px);
-      opacity: 0;
-    }
-    50% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  } 
-  
-  .animate-letter-fall {
-    animation: letterFall 4s forwards;
+@keyframes moveVertical {
+  0% {
+    transform: translateY(-50%);
   }
-
-  .text-shadow {
-    text-shadow: 10px 10px 15px rgba(0, 0, 0, 0.8);
+  50% {
+    transform: translateY(50%);
   }
-
-  .arrow-down {
-    animation: arrowDown 3s linear infinite;
+  100% {
+    transform: translateY(-50%);
   }
+}
 
-  @keyframes arrowDown {
-    0% {
-      transform: translateY(-30%);
-      opacity: 0;
-    }
-    50% {
-      transform: translateY(0);
-      opacity: 0.4;
-    }
-    100% {
-      transform: translateY(30%);
-       opacity: 0;
-    }
+@keyframes moveHorizontal {
+  0% {
+    transform: translateX(-50%) translateY(-10%);
   }
-
-  .card-container {
-    perspective: 600px;
+  50% {
+    transform: translateX(50%) translateY(10%);
   }
-
-  .card-container:hover > .card1,
-  .card-container:hover > .card2,
-  .card-container:hover > .card3{
-    cursor: pointer;
-    transform: rotateY(180deg);
+  100% {
+    transform: translateX(-50%) translateY(-10%);
   }
+}
 
-  .card {
-    transition: transform 1.5s;
-    transform-style: preserve-3d;
-  }
+.main-background {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2));
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
 
-  .front-card,
-  .back-card {
-    backface-visibility: hidden;
-  }
+svg {
+  display: none;
+}
 
-  @media (max-height: 630px) {
-      .card-img {
-        width: 100%;
-        left: 0;
-      }
-  }
-
-  .back-card {
-    transform: rotateY(180deg);
-  }
-
-  .card-btn {
-    background: linear-gradient(to right, rgb(28, 37, 64), rgb(0, 0, 0));
-    background-size: 200% 100%;
-    animation: btnColors 2s linear infinite alternate;
-  }
-
-  .card-btn:hover {
-    background: linear-gradient(to right, rgb(8, 61, 122), rgb(110, 123, 153));
-    background-size: 200% 100%;
-    animation: btnColors 2s linear infinite alternate;
-  }
-
-  @keyframes btnColors {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 50% 50%;
-    }
-    100% {
-      background-position: 100% 50%;
-    }
-  }
-
-  .projects {
-    white-space: nowrap;
-    overflow: hidden;
-  }
-
-  .projects:before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    content: '';
-    width: 20%;
-    height: 100%;
-    background: linear-gradient(to right, #1C2541, #1C2541 15%, #ffffff00 85%, #ffffff00);
-    z-index: 2;
-  }
-
-
-  .projects:after {
-    position: absolute;
-    top: 0;
-    right: 0;
-    content: '';
-    width: 20%;
-    height: 100%;
-    background: linear-gradient(to left, #1C2541, #1C2541 15%, #ffffff00 85%, #ffffff00);
-    z-index: 2;
-  }
-
-  .project-scroll {
-    display: inline-flex;
-    animation: 17s projectSlide infinite linear;
-  }
-
-  @keyframes projectSlide {
-    from {
-      transform: translateX(0)
-    }
-    to {
-      transform: translateX(-100%)
-    }
-  }
-
-  .projects:hover .project-scroll {
-    animation-play-state: paused;
-  }
-
-  .image-dropshadow {
-    box-shadow: 8px 10px 15px rgba(0, 0, 0, 0.2);
-  }
-
-  .gitbox:before {
-    position: absolute;
-    top: 0;
-    left: 0;
+.container-background {
+  position: relative;
+    filter: url(#goo) blur(60px);
     width: 100%;
     height: 100%;
-    border-radius: 24px;
-    background: #0b132b7d;
-    transform: translate(20px, 20px);
-    content: '';
-    z-index: -1;
-  }
+}
 
-  .gitbox:after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 24px;
-    background: #142451;
-    transform: translate(-20px, -20px);
-    content: '';
-    z-index: -1;
-  }
+.g1 {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color1), 0) 50%) no-repeat;
+  mix-blend-mode: var(--blending);
+
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+
+  transform-origin: center center;
+  animation: moveVertical 40s ease infinite;
+
+  opacity: 1;
+}
+
+.g2 {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(var(--color2), 0.8) 0, rgba(var(--color2), 0) 50%) no-repeat;
+  mix-blend-mode: var(--blending);
+
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+
+  transform-origin: calc(50% - 400px);
+  animation: moveInCircle 30s reverse infinite;
+
+  opacity: 1;
+}
+
+.g3 {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(var(--color3), 0.8) 0, rgba(var(--color3), 0) 50%) no-repeat;
+  mix-blend-mode: var(--blending);
+
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2 + 200px);
+  left: calc(50% - var(--circle-size) / 2 - 500px);
+
+  transform-origin: calc(50% + 400px);
+  animation: moveInCircle 50s linear infinite;
+
+  opacity: 1;
+}
+
+.g4 {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(var(--color4), 0.8) 0, rgba(var(--color4), 0) 50%) no-repeat;
+  mix-blend-mode: var(--blending);
+
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+
+  transform-origin: calc(50% - 200px);
+  animation: moveHorizontal 50s ease infinite;
+
+  opacity: 0.7;
+}
+
+.g5 {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(var(--color5), 0.8) 0, rgba(var(--color5), 0) 50%) no-repeat;
+  mix-blend-mode: var(--blending);
+
+  width: calc(var(--circle-size) * 2);
+  height: calc(var(--circle-size) * 2);
+  top: calc(50% - var(--circle-size));
+  left: calc(50% - var(--circle-size));
+
+  transform-origin: calc(50% - 800px) calc(50% + 200px);
+  animation: moveInCircle 30s ease infinite;
+
+  opacity: 1;
+}
+
+.interactive {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(var(--color-interactive), 0.8) 0, rgba(var(--color-interactive), 0) 50%) no-repeat;
+  mix-blend-mode: var(--blending);
+
+  width: 100%;
+  height: 100%;
+  top: -50%;
+  left: -50%;
+
+  opacity: 0.8;
+}
+
+
   
-  .connect-link::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #3a5a77;
-    transform: scaleX(0);
-    transform-origin: bottom right;
-    transition: transform 0.4s ease-in-out;
-  }
-  
-  .connect-link:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom right;
-  }
-
-  .fade-away {
-    animation: fade-away 1s ease-in-out forwards;
-  }
-
-  @keyframes fade-away {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }

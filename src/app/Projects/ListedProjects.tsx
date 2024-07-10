@@ -1,7 +1,16 @@
 'use client'
+import { motion } from "framer-motion";
 import Image from "next/image"
 import Link from "next/link";
 import { useRef, useState } from "react"
+import laptop from "@/assets/laptop.png"
+import phone from '@/assets/phone.png'
+import styles from './projects.module.css'
+
+const variants = {
+    hidden: { opacity: 0 },
+    reveal: { opacity: 1 },
+}
 
 
 export default function ListedProjects({ project }: any) {
@@ -24,28 +33,47 @@ export default function ListedProjects({ project }: any) {
       };
 
     return (
-        <div
-            ref={ref}
-            className="relative image-dropshadow overflow-hidden mx-5 w-[65vw] md:w-[35vw] aspect-video"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            onMouseMove={handleMouseMove}
-        >
-            <Image
-                className={`rounded shadow-lg h-full ${isHovered ? 'scale-105' : 'scale-100'} transition-transform duration-1000 ease-in-out`}
-                src={project.image}
-                alt={project.name}
-                priority />
-            <Link href={project.src}>
-                <div className={`absolute md:cursor-none z-10 top-0 w-full h-full flex justify-center items-center bg-[#242729b3] ${isHovered ? 'opacity-100' : 'opacity-0'} transition-all duration-1000 ease-in-out`}>
-                <div className="block md:hidden text-xl font-thin shadow-2xl">Visit { project.name }!</div>
+        <motion.div
+            initial='hidden'
+            whileInView='reveal'
+            transition={{ staggerChildren: 0.019 }}
+            viewport={{ margin: '-20%' }}
+            className="mx-5 w-[85%] sm:w-[65vw] md:w-[30vw]">
+            <motion.div
+                ref={ref}
+                transition={{ duration: 2.5 }}
+                variants={variants}
+                className={`relative ${isHovered ? styles.imageDropshadowWhite : styles.imageDropshadow} overflow-hidden rounded-xl ease-in-out duration-500 group md:cursor-none`}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                onMouseMove={handleMouseMove}
+            >
+                <div className="w-full h-[50%] flex justify-end pt-14">
+                    <div className="relative w-[65%] flex justify-end aspect-video overflow-hidden ease-in-out duration-1000 group-hover:scale-[1.1] group-hover:translate-y-[-10px] group-hover:translate-x-[-5px]">
+                        <Image src={laptop} alt="laptop" width={200} className='absolute right-0 z-10 w-[75%]' />
+                        <div className="w-full pl-[70px] pt-4">
+                            <Image src={project.image} alt="page" width={200} className='min-h-max w-[80%] mx-auto' />
+                        </div>
+                    </div>
+                    <div className="relative flex justify-center justify-self-start w-[35%] ease-in-out duration-1000 group-hover:scale-[1.1] group-hover:translate-y-[-10px] group-hover:translate-x-[5px]">
+                        <Image src={phone} alt='phone' width={200} className="absolute z-[2] left-0 w-[43%]" />
+                        <div className="w-[37%] absolute left-[4px] z-[1] rounded-[8px] overflow-hidden">
+                            <Image src={project.mobileImage} alt="page" width={200} className='min-h-max w-full mx-auto' />
+                        </div>
+                    </div>
                 </div>
-                { isHovered && <button
-                style={{
-                    transform: `translate(${mousePosition.x - 70}px, ${mousePosition.y - 400}px)`,
-                }}
-                className={`hidden md:block absolute md:cursor-none z-[11] w-[150px] h-[150px] rounded-full bg-gray-950 text-xl font-thin shadow-2xl duration-100 whitespace-normal`}>Visit { project.name }!</button>}
-            </Link>
-        </div>
+                <Link href={project.src}>
+                    { isHovered && <button
+                    style={{
+                        transform: `translate(${mousePosition.x - 70}px, ${mousePosition.y - 325}px)`,
+                    }}
+                    className={`hidden md:block absolute md:cursor-none z-[11] w-[150px] h-[150px] rounded-full text-sm blur-2xl shadow-2xl duration-100 whitespace-normal`}>Visit { project.name }!</button>}
+                </Link>
+                <div className="flex flex-col items-center justify-center p-7">
+                    <h3 className="text-sm sm:text-base md:text-xl font-extrabold text-[#fff] mix-blend-difference">{ project.title }</h3>
+                    <p className="text-xs sm:text-sm font-mono py-5 tracking-widest leading-6">{ project.desc }</p>
+                </div>
+            </motion.div>
+        </motion.div>
   )
 }

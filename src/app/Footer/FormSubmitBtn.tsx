@@ -23,7 +23,7 @@ export default function FormSubmitButton({
       disabled={pending}
     >
       {pending && <span className="loading loading-spinner" /> }
-      {children}
+      {children} {pending && <span>...</span>}
     </button>
   );
 }

@@ -1,0 +1,8 @@
+
+.imageDropshadow {
+  box-shadow: 0px 0px 30px 15px rgba(0, 0, 0, 0.3);
+} 
+
+.imageDropshadowWhite {
+  box-shadow: 0px 0px 40px 20px rgba(255, 255, 255, 0.2);
+} 

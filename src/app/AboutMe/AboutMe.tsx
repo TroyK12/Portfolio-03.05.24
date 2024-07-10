@@ -1,56 +1,50 @@
-import Card from './Card'
-import duluth1 from "@/assets/duluth-1.png"
-import duluth1Night from "@/assets/duluth-1-night.png"
-import duluth2 from "@/assets/duluth-2.png"
-import duluth2Night from "@/assets/duluth-2-night.png"
-import duluth3 from "@/assets/duluth-3.png"
-import duluth3Night from "@/assets/duluth-3-night.png"
+import FramerTextStyles from './FramerTextStyles'
+import FramerCardStyles from "./FramerCardStyles"
+import Image from 'next/image'
 
-const cards = [
-    {
-        id: 1,
-        className: 'card1',
-        image: duluth1,
-        nightImage: duluth1Night,
-        aboutArea: "Hiya There! My name is Troy, I am a self taught, self motivated, freelance software / website developer and designer! I was raised and currently live in the heart of Duluth Minnesota and love every day of it, whether that's me shedding the slopes of Spirit Mtn or on the lakewalk training for a marthon.",
-        title: 'A Little About Me!',
-        link: 'about',
-        linkName: 'Where It Started!'
-    },
-    {
-        id: 2,
-        className: 'card2',
-        image: duluth2,
-        nightImage: duluth2Night,
-        aboutArea: "With expertise in resposive design, e-commerce developemnt, and search engine opimization (SEO), I help clients establish a strong online presence and drive growth through their website.",
-        title: 'Services Offered!',
-        link: 'services',
-        linkName: 'Learn More!'
-    },
-    {
-        id: 3,
-        className: 'card3',
-        image: duluth3,
-        nightImage: duluth3Night,
-        aboutArea: "Need an e-commerce website? How about a personalised portfolio? Maybe you just need a nice looking, functional website for you or your small business. Whatever it may be, click the button below and send me a message of what your dream is!",
-        title: "Let's Create Something!",
-        link: 'contact',
-        linkName: 'Contact Me!'
-    },
-]
+import nextLogo from "@/assets/next-logo.png"
+import jsLogo from "@/assets/js-logo.png"
+import cssLogo from "@/assets/css-logo.png"
+import htmlLogo from "@/assets/html-logo.png"
+import reactLogo from "@/assets/react-logo.png"
+import vscodeLogo from "@/assets/vscode-logo.png"
+import mongodbLogo from "@/assets/mongodb-logo.png"
+import nodeLogo from "@/assets/node-logo.png"
+
+const aboutMeProf = "I'm a full stack website designer and developer based in Duluth, mn as a freelancer. I love merging technical skills and visual design to create vibrant digital products. With a passion for design and solid development skills, I'm here to bring your vision to life and create a web experience that's uniquely yours."
+const aboutMePersonal = "I'm happiest when I'm creating, learning and exploring. When I'm not immersed in coding, you can find me snowboarding down the hills or hitting the trails for a run. My passion for adventure and the great outdoors fuels my creativity and determination in all my projects."
+const title = "who is troy?"
+const title2 = "a curiosity-driven self taught freelance developer"
+
+
+
 
 export default function AboutMe() {
 
     return (
-        <section id="aboutMe" className="w-screen h-auto py-28 bg-[#1C2541]">
-            <div className="flex flex-col lg:flex-row justify-around items-center px-10 gap-10">
-                {cards.map(card => {
-                    return (
-                        <Card className={ card.className } image={ card.image } nightImage={ card.nightImage } link={card.link} linkName={card.linkName} aboutArea={ card.aboutArea } key={ card.id }>
-                            <h1 className="text-center">{ card.title }</h1>
-                        </Card>)
-                })}
+        <section id="aboutMe" className="relative w-screen pt-14">
+            <div className='w-full flex flex-col md:flex-row'>
+                <div className='w-full md:w-[40%] flex flex-col justify-center items-center gap-20'>
+                    <div className='pl-3'><FramerTextStyles duration={0.8} text={title} className='text-3xl' /></div>
+                    <FramerCardStyles />
+                </div>
+                <div className='w-full md:w-[60%] md:pr-36 pt-28 px-3 sm:px-0 flex flex-col justify-center items-center md:items-start gap-5'>
+                    <FramerTextStyles duration={0.8} text={title2} className='text-lg sm:text-2xl pb-4' />
+                    <FramerTextStyles duration={0.3} text={aboutMeProf} className='font-mono text-sm sm:text-base leading-10' />
+                    <FramerTextStyles duration={0.3} text={aboutMePersonal} className='font-mono text-sm sm:text-base leading-10' />
+                </div>
+            </div>
+            <div className='grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-5 sm:gap-0 py-20 w-full'>
+                <Image src={htmlLogo} alt="logo" width={40} className="w-[40px] h-[40px] my-3 mx-auto" />     
+                <Image src={cssLogo} alt="logo" width={40} className="w-[40px] h-[40px] my-3 mx-auto" />     
+                <Image src={jsLogo} alt="logo" width={40} className="w-[40px] h-[40px] my-3 mx-auto" />     
+                <Image src={reactLogo} alt="logo" width={40} className="w-[40px] h-[40px] my-3 mx-auto" />     
+                <Image src={nextLogo} alt="logo" width={40} className="w-[40px] h-[40px] my-3 mx-auto" />     
+                <Image src={nodeLogo} alt="logo" width={40} className="w-[40px] h-[40px] my-3 mx-auto" />     
+                <Image src={vscodeLogo} alt="logo" width={40} className="w-[40px] h-[40px] my-3 mx-auto" />     
+                <Image src={mongodbLogo} alt="logo" width={40} className="w-[40px] h-[40px] my-3 mx-auto" />     
             </div>
         </section>
     )
 }
+

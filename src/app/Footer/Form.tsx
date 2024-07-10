@@ -26,30 +26,34 @@ export default function Form() {
 
     return (
         <>
-            <form id="contact" className="flex flex-col gap-6 w-[80%]" action={formAction}>
+            <form id="contact" ref={ref} className="flex flex-col gap-6 w-[80%]" action={formAction}>
                 <input
                     className={`border-b-2 ${formState.errors?.name && 'border-b-[#9a1d1d]'} bg-transparent outline-none w-full`}
                     type="text"
                     name="name"
                     placeholder="Name"
+                    defaultValue={formState.fieldValues.name}
                     maxLength={30}/>
                 <input
                     className={`border-b-2 ${formState.errors?.email && 'border-b-[#9a1d1d]'} bg-transparent outline-none w-full`}
                     type="text"
                     name="email"
                     placeholder="Email"
+                    defaultValue={formState.fieldValues.email}
                     maxLength={30}/>
                 <input
                     className={`border-b-2 ${formState.errors?.number && 'border-b-[#9a1d1d]'} bg-transparent outline-none w-full`}
                     type="text"
                     name="number"
                     maxLength={20}
+                    defaultValue={formState.fieldValues.number}
                     placeholder="Phone Number"/>
                 <textarea
                     className={`border-2 ${formState.errors?.message && 'border-[#9a1d1d]'} bg-transparent outline-none rounded-md w-full p-1`}
                     name="message"
                     maxLength={200}
                     placeholder="Talk to me!"
+                    defaultValue={formState.fieldValues.message}
                     cols={40}
                     rows={10}/>
                 <input
