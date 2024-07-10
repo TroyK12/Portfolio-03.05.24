@@ -50,14 +50,13 @@ export default function FramerLaptop() {
     return (
         <div className="w-full">
             <div className="w-full h-[160vh] relative">
-                <h2 className="w-full text-center py-[100px] text-3xl font-bold">How do we get started?</h2>
                 <motion.div className="sticky z-[2] top-[20vh] flex items-start justify-center w-full">
                     <div className="w-full flex justify-center aspect-video overflow-hidden">
                         <Image src={laptop} alt="laptop" width={800} className='absolute top-[-10px] z-10 w-full' />
                         <motion.p style={{y: yL}} className="absolute top-[80%] left-[-50px] flex items-center gap-5">now! <Image src={rightArrow} alt="arrow" width={50} /></motion.p>
                         <motion.div
                             style={{
-                                y: useTransform(scrollYProgress, [0.4, 0.7], ["10%", "-130%"])
+                                y: useTransform(scrollYProgress, [0.4, 0.8], ["10%", "-130%"])
                             }}
                             className="w-full">
                             <Image src={ePage} alt="page" width={790} className='min-h-max w-[81%] mx-auto' /></motion.div>

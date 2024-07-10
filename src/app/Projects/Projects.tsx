@@ -121,20 +121,26 @@ export default function Projects() {
 
     return (
         <section id="projects" className="relative w-screen">
-            <div className="w-full flex flex-col-reverse md:flex-row md:pl-20 py-10">
+            <div className="w-full flex flex-col md:flex-row md:pl-20 py-10">
                 <div className="relative w-full md:w-[75%] pt-20">
-                    <div className="flex flex-col gap-4 justify-start items-end px-1">
+                <h2 className="w-full text-center py-[50px] text-3xl font-bold">How do we get started?</h2>
+                    <div className="flex flex-col gap-4 justify-start items-end px-1 py-10">
                         {texts.map(text => ( 
                             <div key={text.id} className={`relative w-[85%] sm:w-[65%] ${text.position}`}><FramerTextStyles fadeDirection={text.fadeDirection} color={text.color} className2='w-full' className1='font-mono text-[12px] sm:text-[16px] rounded-3xl py-[8px] px-4'>{ text.text }</FramerTextStyles></div>
                         ))}
                     </div>   
-                    <div className='w-full flex flex-col justify-end items-center gap-8 py-20'>
-                        {projectList.map((project) => {
-                            return <ListedProjects project={project} key={project.id} />
-                        })}
+                    <FramerLaptop />
+                </div>               
+                <div className='w-full flex flex-col justify-end items-center gap-8 py-20'>
+                    <div className="justify-self-start w-full h-full">
+                        
+                    </div>
+                    <div className='w-full flex flex-col justify-end items-center gap-8'>
+                    {projectList.map((project) => {
+                        return <ListedProjects project={project} key={project.id} />
+                    })}
                     </div>
                 </div>
-                <FramerLaptop />
             </div>
         </section>
     )
