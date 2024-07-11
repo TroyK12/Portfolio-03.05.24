@@ -57,7 +57,7 @@ export default function ListedProjects({ project }: any) {
                     </div>
                     <div className="relative flex justify-center justify-self-start w-[35%] ease-in-out duration-1000 group-hover:scale-[1.1] group-hover:translate-y-[-10px] group-hover:translate-x-[5px]">
                         <Image src={phone} alt='phone' width={200} className="absolute z-[2] left-0 w-[43%]" />
-                        <div className="w-[37%] absolute left-[4px] z-[1] rounded-[8px] overflow-hidden">
+                        <div className="w-[36.5%] absolute left-[4.5px] top-[2px] z-[1] rounded-[8px] overflow-hidden">
                             <Image src={project.mobileImage} alt="page" width={200} className='w-full h-full mx-auto' />
                         </div>
                     </div>

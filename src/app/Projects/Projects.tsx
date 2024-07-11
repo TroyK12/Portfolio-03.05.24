@@ -131,8 +131,8 @@ export default function Projects() {
                     </div>   
                     <FramerLaptop />
                 </div>               
-                <div className='w-full flex flex-col justify-end items-center gap-8 py-20'>
-                    <div className="justify-self-start w-full h-full">
+                <div className='w-full flex flex-col justify-center items-center gap-8 py-20'>
+                    <div className="justify-self-start w-full">
                         
                     </div>
                     <div className='w-full flex flex-col justify-end items-center gap-8'>
