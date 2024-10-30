@@ -20,7 +20,6 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<Analytics />
 			<body className={inter.className}>
 				<Navbar />
 				<Background />
@@ -28,6 +27,7 @@ export default function RootLayout({
 					{children}
 				</main>
 				<Footer />
+				<Analytics />
 			</body>
 		</html>
 	);
