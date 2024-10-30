@@ -12,6 +12,14 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
 	title: 'Troy M Kush | Website Designer | Duluth MN',
 	description: 'Troy Kush, Portfolio',
+	twitter: {
+		card: 'summary_large_image',
+	},
+	appleWebApp: {
+		capable: true,
+		title: 'Troy Kush',
+		statusBarStyle: 'black-translucent',
+	},
 };
 
 export default function RootLayout({
