@@ -39,6 +39,7 @@ const StripePayment = () => {
 						</label>
 						<input
 							type="number"
+							inputMode="numeric"
 							name="amount"
 							min={1}
 							max={100000}
