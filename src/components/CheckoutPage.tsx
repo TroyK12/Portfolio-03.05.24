@@ -7,8 +7,6 @@ import {
 	PaymentElement,
 } from '@stripe/react-stripe-js';
 import convertToSubcurrency from '@/lib/convertToSubcurrency';
-import formatCurrency from '@/lib/formatCurrency';
-import Link from 'next/link';
 
 const CheckoutPage = ({ amount }: { amount: number }) => {
 	const stripe = useStripe();
@@ -61,7 +59,7 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
 			elements,
 			clientSecret,
 			confirmParams: {
-				return_url: `http://localhost:3000/#payment-success?amount=${amount}`,
+				return_url: `https://troykush.com/#payment-success?amount=${amount}`,
 			},
 			redirect: 'if_required',
 		});
