@@ -162,7 +162,7 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
 			<button
 				disabled={!stripe || loading}
 				className="text-white w-full p-5 bg-[#191919] hover:bg-black mt-2 rounded-md font-bold disabled:opacity-50 disabled:animate-pulse">
-				{!loading ? `Pay $${amount ? amount : 0}` : 'Processing...'}
+				{!loading ? `Pay $${amount ? amount.toFixed(2) : 0}` : 'Processing...'}
 			</button>
 		</form>
 	);

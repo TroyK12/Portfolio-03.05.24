@@ -13,6 +13,9 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
 const StripePayment = () => {
 	const [amount, setAmount] = useState(0);
+	const feeAmount = amount * 0.03;
+	const totalAmount = amount + feeAmount;
+
 	const [submit, setSubmit] = useState(false);
 
 	return (
@@ -23,10 +26,10 @@ const StripePayment = () => {
 					stripe={stripePromise}
 					options={{
 						mode: 'payment',
-						amount: convertToSubcurrency(amount),
+						amount: convertToSubcurrency(totalAmount),
 						currency: 'usd',
 					}}>
-					<CheckoutPage amount={amount} />
+					<CheckoutPage amount={totalAmount} />
 					<button className="pt-3" onClick={() => setSubmit(false)}>
 						&larr; Change amount
 					</button>
