@@ -42,7 +42,7 @@ const StripePayment = () => {
 							name="amount"
 							min={1}
 							max={100000}
-							pattern="^[0-9]*(\.[0-9]+)?$"
+							pattern="^[0-9]+(\.[0-9]{1,2})?$"
 							placeholder="Enter amount"
 							onChange={(e) => setAmount(parseFloat(e.target.value))}
 							className="w-full font-sans border-[1px] shadow-md rounded border-[#cecece96] h-[42px] text-black px-2 mb-2 focus:outline-none"
