@@ -8,6 +8,8 @@ interface confirmationEmailProps {
 	email: string;
 	product: string;
 	amount: number;
+	originalAmount: number;
+	fee: number;
 }
 
 export async function sendEmail({ name, email, number, message }: any) {
@@ -127,11 +129,17 @@ export async function sendEmail({ name, email, number, message }: any) {
 	}
 }
 
+function addCommas(number: number) {
+	return new Intl.NumberFormat('en-US').format(number);
+}
+
 export async function confirmationEmail({
 	name,
 	email,
 	product,
 	amount,
+	originalAmount,
+	fee,
 }: confirmationEmailProps) {
 	try {
 		if (!email || !amount) {
@@ -146,6 +154,7 @@ export async function confirmationEmail({
 			},
 		});
 
+		const formatOriginalAmount = formatCurrency(originalAmount);
 		const formattedAmount = formatCurrency(amount);
 
 		const mailOption = {
@@ -456,7 +465,15 @@ export async function confirmationEmail({
                             <tbody>
                                 <tr>
                                     <td>${product}</td>
-                                    <td class="highlight">${formattedAmount}</td>
+                                    <td class="highlight">$${addCommas(
+																			originalAmount,
+																		)}</td>
+                                </tr>
+                                <tr>
+                                    <td>3% Fee</td>
+                                    <td class="highlight">$${fee.toFixed(
+																			2,
+																		)}</td>
                                 </tr>
                             </tbody>
                             <tfoot>

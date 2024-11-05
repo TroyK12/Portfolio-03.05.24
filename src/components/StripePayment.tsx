@@ -12,16 +12,16 @@ if (process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY === undefined) {
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
 const StripePayment = () => {
-	const [amount, setAmount] = useState(0);
-	const feeAmount = amount * 0.03;
-	const totalAmount = amount + feeAmount;
+	const [originalAmount, setOriginalAmount] = useState(0);
+	const feeAmount = originalAmount * 0.03;
+	const totalAmount = originalAmount + feeAmount;
 
 	const [submit, setSubmit] = useState(false);
 
 	return (
 		<div className="relative max-sm:top-[10%] sm:h-full flex flex-col justify-center items-center overflow-y-scroll">
 			<h1 className="text-3xl pb-3">Make a Payment</h1>
-			{amount && submit ? (
+			{originalAmount && submit ? (
 				<Elements
 					stripe={stripePromise}
 					options={{
@@ -29,7 +29,11 @@ const StripePayment = () => {
 						amount: convertToSubcurrency(totalAmount),
 						currency: 'usd',
 					}}>
-					<CheckoutPage amount={totalAmount} />
+					<CheckoutPage
+						fee={feeAmount}
+						originalAmount={originalAmount}
+						amount={totalAmount}
+					/>
 					<button className="pt-3" onClick={() => setSubmit(false)}>
 						&larr; Change amount
 					</button>
@@ -49,7 +53,7 @@ const StripePayment = () => {
 							step="0.01"
 							pattern="^[0-9]+(\.[0-9]{1,2})?$"
 							placeholder="Enter amount"
-							onChange={(e) => setAmount(parseFloat(e.target.value))}
+							onChange={(e) => setOriginalAmount(parseFloat(e.target.value))}
 							className="w-full font-sans border-[1px] shadow-md rounded border-[#cecece96] h-[42px] text-black px-2 mb-2 focus:outline-none"
 							required
 						/>

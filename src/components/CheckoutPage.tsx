@@ -8,7 +8,15 @@ import {
 } from '@stripe/react-stripe-js';
 import convertToSubcurrency from '@/lib/convertToSubcurrency';
 
-const CheckoutPage = ({ amount }: { amount: number }) => {
+const CheckoutPage = ({
+	amount,
+	originalAmount,
+	fee,
+}: {
+	amount: number;
+	originalAmount: number;
+	fee: number;
+}) => {
 	const stripe = useStripe();
 	const elements = useElements();
 
@@ -28,6 +36,8 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
 			},
 			body: JSON.stringify({
 				amount: convertToSubcurrency(amount),
+				originalAmount,
+				fee,
 				email,
 				name,
 				product,
