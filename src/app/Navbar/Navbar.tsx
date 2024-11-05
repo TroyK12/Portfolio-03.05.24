@@ -167,12 +167,12 @@ export default function Navbar() {
 				</div>
 			</div>
 			<div
-				className={`absolute z-[110] top-0 right-0 h-screen w-[85vw] md:w-[50vw] bg-[#0b132b1e] backdrop-blur-xl transition-all ease-in-out duration-500 ${
+				className={`absolute z-[110] top-0 right-0 h-screen overflow-y-scroll w-[95vw] sm:w-[85vw] md:w-[50vw] bg-[#0b132b1e] backdrop-blur-xl transition-all ease-in-out duration-500 ${
 					isPaymentOpen ? 'right-0 opacity-1' : 'right-[-100%] opacity-0'
 				}`}>
 				<button
 					onClick={() => setIsPaymentOpen(false)}
-					className="absolute z-[111] top-16 right-16 w-[45px] h-[45px] cursor-pointer">
+					className="absolute z-[111] top-5 right-5 sm:top-16 sm:right-16 w-[45px] h-[45px] cursor-pointer">
 					<div className="w-full h-[4px] bg-white rounded-lg rotate-45 translate-y-[2px]" />
 					<div className="w-full h-[4px] bg-white rounded-lg -rotate-45" />
 				</button>

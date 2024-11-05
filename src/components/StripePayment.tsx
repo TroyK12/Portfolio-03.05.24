@@ -16,7 +16,7 @@ const StripePayment = () => {
 	const [submit, setSubmit] = useState(false);
 
 	return (
-		<div className="h-full flex flex-col justify-center items-center overflow-y-scroll">
+		<div className="relative max-sm:top-[10%] sm:h-full flex flex-col justify-center items-center overflow-y-scroll">
 			<h1 className="text-3xl pb-3">Make a Payment</h1>
 			{amount && submit ? (
 				<Elements
