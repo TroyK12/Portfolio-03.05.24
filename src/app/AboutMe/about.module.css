@@ -1,23 +1,6 @@
-
-/* .phoneImg {
-    animation: imgSlide 2.8s ease-in-out forwards;
+.lineHeight {
+	line-height: 45px;
 }
-
-@keyframes imgSlide {
-    0% {
-        transform: translateX(-17%);
-    }
-    100% {
-        transform: translateX(-25%);
-    }
-} */
-
-
-
-
-
-
-
 
 /*   .cardContainer {
     perspective: 700px;
