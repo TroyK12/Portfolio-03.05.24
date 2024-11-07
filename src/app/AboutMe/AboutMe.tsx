@@ -49,11 +49,11 @@ export default function AboutMe() {
 						/>
 					</div>
 
-					<div>
+					<div className="flex flex-col gap-8">
 						<FramerTextStyles
 							duration={0.8}
 							text={title3}
-							className="text-lg sm:text-2xl pb-10"
+							className="text-lg sm:text-2xl font-bold"
 						/>
 						<FramerTextStyles
 							duration={0.5}
