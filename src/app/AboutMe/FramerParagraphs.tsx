@@ -10,7 +10,7 @@ export default function FramerParagraphs({ text }: { text: string }) {
 		offset: ['start 0.9', 'start 0.7'],
 	});
 
-	const y = useTransform(scrollYProgress, [0, 1], ['30px', '0px']);
+	const y = useTransform(scrollYProgress, [0, 1], ['40px', '0px']);
 	const opacity = useTransform(scrollYProgress, [0, 0.7, 1], [0, 0.8, 1]);
 	const blur = useTransform(scrollYProgress, [0, 1], ['2px', '0px']);
 	const scale = useTransform(scrollYProgress, [0, 1], [0.98, 1]);
