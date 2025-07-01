@@ -24,7 +24,7 @@ export default function Footer() {
 				</div>
 				<div className="w-full md:w-1/2 flex flex-col items-center justify-center pt-10">
 					<div className="pb-5 w-full flex flex-col items-center">
-						<h1 className="text-3xl font-thin py-2">Hit Me Up!</h1>
+						<h1 className="text-3xl font-thin py-2">What Can I Do To Help?</h1>
 						<div className="h-[2px] min-w-[100px] w-[30%] bg-white mx-3 relative" />
 					</div>
 					<Form />

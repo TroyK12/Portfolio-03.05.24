@@ -10,8 +10,9 @@ import Script from 'next/script';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-	title: 'Troy M Kush | Website Designer | Duluth MN',
-	description: 'Troy Kush, Portfolio',
+	title: 'Troy Kush | Website Designer | Website Developer | Duluth MN',
+	description:
+		'Freelance web designer & developer building beautiful websites that work. I specialize in custom sites for small businesses and creatives-no cookie-cutter templates, just your brand brought to life. Based in Duluth, MN | React, Next.js, Tailwind CSS | Let’s make your site unforgettable.',
 	twitter: {
 		card: 'summary_large_image',
 	},
@@ -32,7 +33,8 @@ export default function RootLayout({
 			<head>
 				<Script
 					async
-					src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}></Script>
+					src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+				/>
 				<Script id="google-analytics">
 					{`
 					  window.dataLayer = window.dataLayer || [];
@@ -42,6 +44,12 @@ export default function RootLayout({
 					  gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
 					`}
 				</Script>
+				<Script
+					async
+					defer
+					strategy="beforeInteractive"
+					src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY}`}
+				/>
 			</head>
 			<body className={inter.className}>
 				<Navbar />

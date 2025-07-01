@@ -2,10 +2,7 @@
 import Image from 'next/image';
 import laptop from '@/assets/laptop.png';
 import ePage from '@/assets/e-commerce.png';
-import rightArrow from '@/assets/right-arrow.png';
 import { motion, useScroll, useTransform } from 'framer-motion';
-
-import styles from './projects.module.css';
 import FramerTextStyles from './FramerTextStyles';
 
 const texts = [
@@ -44,7 +41,7 @@ const texts = [
 export default function FramerLaptop() {
 	let { scrollYProgress } = useScroll();
 	//let opacity = useTransform(scrollYProgress, [0, 0.6, 0.65], ["1", "1", "0"])
-	const yL = useTransform(scrollYProgress, [0.1, 0.4], ['0%', '-20%']);
+	//const yL = useTransform(scrollYProgress, [0.1, 0.4], ['0%', '-20%']);
 
 	return (
 		<div className="w-full">

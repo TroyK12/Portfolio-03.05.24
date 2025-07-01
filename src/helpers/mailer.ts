@@ -32,89 +32,249 @@ export async function sendEmail({ name, email, number, message }: any) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Contact Form Submission</title>
+    <title>New Cosmic Message</title>
     <style>
+        /* Cosmic Gradient Animation */
+        @keyframes cosmicBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Base Styles */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: #e0e0e0;
             margin: 0;
             padding: 0;
-            background-color: #1b1b1b;
-            color: #f39c12;
+            background-color: #0f0f15;
         }
+        
         .container {
-            max-width: 600px;
+            max-width: 640px;
             margin: 20px auto;
-            background: #2c3e50;
-            border-radius: 5px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            padding: 0 20px;
+        }
+        
+        /* Glowing Email Container */
+        .email-container {
+            background: rgba(15, 15, 25, 0.8);
+            border-radius: 24px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             overflow: hidden;
-            border: 1px solid #34495e;
+            position: relative;
+            box-shadow: 0 0 30px rgba(105, 90, 205, 0.3);
         }
+        
+        /* Header with Animated Stars */
         .header {
-            background-color: #2980b9;
-            color: white;
-            padding: 30px;
+            padding: 50px 30px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-        .header h1 {
-            margin: 0;
+        
+        .logo {
             font-size: 28px;
-            letter-spacing: 1px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #89d2ff, #6e45e2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            margin-bottom: 15px;
         }
+        
+        h1 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #fff, #89d2ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -1px;
+        }
+        
+        /* Message Content */
         .content {
+            padding: 40px;
+        }
+        
+        .message-card {
+            background: rgba(30, 30, 40, 0.6);
+            border-radius: 16px;
             padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
         }
-        .content p {
-            line-height: 1.6;
-            color: #f39c12;
+        
+        .message-card:hover {
+            transform: translateY(-5px);
+            background: rgba(40, 40, 50, 0.7);
         }
-        .footer {
-            background-color: #34495e;
+        
+        .detail-row {
+            margin-bottom: 20px;
+        }
+        
+        .label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #89d2ff;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .value {
+            font-size: 18px;
+            font-weight: 500;
+            color: white;
+            word-break: break-word;
+        }
+        
+        /* Interactive Elements */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .action-button {
+            flex: 1;
+            min-width: 120px;
             text-align: center;
             padding: 15px;
-            font-size: 14px;
-        }
-        .footer a {
-            color: #1abc9c;
+            border-radius: 12px;
+            font-weight: 600;
             text-decoration: none;
+            transition: all 0.3s ease;
         }
-        .info {
-            margin: 20px 0;
-            padding: 15px;
-            background: #34495e;
-            border-left: 5px solid #1abc9c;
-            border-radius: 8px;
+        
+        .reply-btn {
+            background: linear-gradient(135deg, #6e45e2, #89d2ff);
+            color: white !important;
         }
-        .highlight {
-            color: #f39c12;
-            font-weight: bold;
+        
+        .archive-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white !important;
+        }
+        
+        .action-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Priority Indicator */
+        .priority-tag {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-left: 10px;
+            background: linear-gradient(90deg, #ff4d4d, #f9cb28);
+            color: #0f0f15 !important;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 600px) {
+            .content {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 28px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>New Contact Form Submission</h1>
-        </div>
-        <div class="content">
-            <p>You've received a new message from your contact form!</p>
-            <div class="info">
-                <strong>Name:</strong> <span class="highlight">${name}</span><br>
-                <strong>Email:</strong> <a href="mailto:${email}" style="color: #1abc9c;">${email}</a><br>
-                <strong>Phone Number:</strong> <span class="highlight">${number}</span><br>
+        <div class="email-container">
+            <div class="header">
+                <div class="header-content">
+                    <div class="logo">
+                    <img src="https://www.troykush.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ftk.d5047aa5.png&w=256&q=75" 
+                        alt="TK" 
+                        width="180" 
+                        height="auto" 
+                        style="display: block; margin: 0 auto; outline: none; border: 0;"
+                    </div>
+                    <h1>New Client Message <span class="priority-tag">PRIORITY</span></h1>
+                </div>
             </div>
-            <p><strong class="highlight">Message:</strong></p>
-            <p>${message}</p>
-            <p>Thank you for following up!</p>
-        </div>
-        <div class="footer">
-            <p>&copy; 2024 TKM. All Rights Reserved.</p>
-            <p><a href="https://troykush.com">Visit Our Website</a></p>
+            
+            <div class="content">
+                <div class="message-card">
+                    <div class="detail-row">
+                        <span class="label">From</span>
+                        <div class="value">${name} <span style="color: #89d2ff;">&lt;${email}&gt;</span></div>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <span class="label">Contact Number</span>
+                        <div class="value">${
+													number ||
+													'<span style="opacity:0.6">Not provided</span>'
+												}</div>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <span class="label">Received</span>
+                        <div class="value">${new Date().toLocaleString(
+													'en-US',
+													{
+														weekday: 'long',
+														year: 'numeric',
+														month: 'long',
+														day: 'numeric',
+														hour: '2-digit',
+														minute: '2-digit',
+													},
+												)}</div>
+                    </div>
+                    
+                    <div class="detail-row" style="margin-top:30px;">
+                        <span class="label">Message</span>
+                        <div class="value" style="
+                            background: rgba(0, 0, 0, 0.2);
+                            padding: 20px;
+                            border-radius: 12px;
+                            border-left: 4px solid #6e45e2;
+                            line-height: 1.8;
+                        ">${message}</div>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <a href="mailto:${email}" class="action-button reply-btn">✉️ Reply Directly</a>
+                    
+                </div>
+            </div>
+            
+            <div class="footer">
+                <p>This message was sent from your website's contact form</p>
+                <p>© ${new Date().getFullYear()} TMK. All rights reserved.</p>
+            </div>
         </div>
     </div>
 </body>
 </html>
-
 `,
 		};
 
