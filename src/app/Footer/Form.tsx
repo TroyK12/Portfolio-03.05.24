@@ -5,7 +5,7 @@ import FormSubmitButton from './FormSubmitBtn';
 import { getCaptchaToken } from '@/helpers/getCaptchaToken';
 
 export default function Form() {
-	const [formState, formAction] = useActionState(sendFormEmail, {
+	const [formState, formAction, isPending] = useActionState(sendFormEmail, {
 		message: '',
 		errors: undefined,
 		fieldValues: {
@@ -69,42 +69,56 @@ export default function Form() {
 				action={handleSubmit}>
 				<input
 					className={`border-b-2 ${
-						formState.errors?.name && 'border-b-[#9a1d1d] font-mono'
-					} bg-transparent outline-none w-full`}
+						formState.errors?.name && 'border-b-[#9a1d1d]'
+					} bg-transparent outline-none w-full font-mono`}
 					type="text"
 					name="name"
 					placeholder={formState.errors?.name ? formState.errors?.name : 'Name'}
 					defaultValue={formState.fieldValues.name}
 					maxLength={30}
 				/>
-				<input
-					className={`border-b-2 ${
-						formState.errors?.email && 'border-b-[#9a1d1d] font-mono'
-					} bg-transparent outline-none w-full`}
-					type="text"
-					name="email"
-					placeholder={
-						formState.errors?.email ? formState.errors?.email : 'Email'
-					}
-					defaultValue={formState.fieldValues.email}
-					maxLength={30}
-				/>
-				<input
-					className={`border-b-2 ${
-						formState.errors?.number && 'border-b-[#9a1d1d] font-mono'
-					} bg-transparent outline-none w-full`}
-					type="text"
-					name="number"
-					maxLength={16}
-					defaultValue={formState.fieldValues.number}
-					placeholder={
-						formState.errors?.number ? formState.errors?.number : 'Phone Number'
-					}
-				/>
+				<div className="relative">
+					<input
+						className={`border-b-2 ${
+							formState.errors?.email && 'border-b-[#9a1d1d]'
+						} bg-transparent outline-none w-full font-mono`}
+						type="text"
+						name="email"
+						placeholder={
+							formState.errors?.email ? formState.errors?.email : 'Email'
+						}
+						defaultValue={formState.fieldValues.email}
+						maxLength={30}
+					/>
+					<p className="absolute top-0 right-0 font-mono text-[#9a1d1d]">
+						{formState.errors?.email !== 'An email is required.' &&
+							formState.errors?.email}
+					</p>
+				</div>
+				<div className="relative">
+					<input
+						className={`border-b-2 ${
+							formState.errors?.number && 'border-b-[#9a1d1d]'
+						} bg-transparent outline-none w-full font-mono`}
+						type="text"
+						name="number"
+						maxLength={16}
+						defaultValue={formState.fieldValues.number}
+						placeholder={
+							formState.errors?.number
+								? formState.errors?.number
+								: 'Phone Number'
+						}
+					/>
+					<p className="absolute top-0 right-0 font-mono text-[#9a1d1d]">
+						{formState.errors?.number !== 'A phone number is required.' &&
+							formState.errors?.number}
+					</p>
+				</div>
 				<textarea
 					className={`border-2 ${
-						formState.errors?.message && 'border-[#9a1d1d] font-mono'
-					} bg-transparent outline-none rounded-md w-full p-1`}
+						formState.errors?.message && 'border-[#9a1d1d]'
+					} bg-transparent outline-none rounded-md w-full p-1 font-mono`}
 					name="message"
 					maxLength={500}
 					placeholder={
@@ -116,10 +130,20 @@ export default function Form() {
 					cols={40}
 					rows={10}
 				/>
-
-				<FormSubmitButton className="p-3 bg-[#99a5b1] hover:bg-[#5b6269] ease-in-out duration-200 w-[50%] rounded-md m-auto font-thin text-xl flex justify-center">
-					Send!
-				</FormSubmitButton>
+				<button
+					className={`relative p-3 ${
+						isPending ? 'bg-[#5b6269]' : 'bg-[#99a5b1]'
+					} hover:bg-[#5b6269] ease-in-out duration-200 w-[50%] rounded-md m-auto font-thin text-xl flex justify-center items-center gap-3`}
+					type="submit"
+					disabled={isPending}>
+					Send
+					{isPending && (
+						<>
+							ing{' '}
+							<div className="animate-spin rounded-full h-4 w-4 border-t-2 border-[#fff]" />
+						</>
+					)}
+				</button>
 			</form>
 			<p className="text-lg text-center w-full font-mono text-red-500">
 				{formState.errors?.token}
